@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Grooming Appointment | Solana Dog Grooming</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-light">
+    <!-- Header same as index.html -->
+    <div class="container" style="padding: 80px 20px;">
+        <div class="form-wrapper" style="max-width: 600px; margin: 0 auto; background: white; padding: 40px; border-radius: 15px; box-shadow: var(--shadow);">
+            <h2 class="text-center">Book Your Pup's Spa Day</h2>
+            <p class="text-center" style="margin-bottom: 30px;">Complete the form below and we'll confirm your spot within 2 hours.</p>
+            
+            <form id="bookingForm">
+                <div style="margin-bottom: 20px;">
+                    <label>Your Name*</label>
+                    <input type="text" required style="width: 100%; padding: 12px; margin-top: 5px; border: 1px solid #ddd; border-radius: 5px;">
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <label>Dog's Name & Breed*</label>
+                    <input type="text" placeholder="e.g. Bella, Goldendoodle" required style="width: 100%; padding: 12px; margin-top: 5px; border: 1px solid #ddd; border-radius: 5px;">
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <label>Service Requested</label>
+                    <select style="width: 100%; padding: 12px; margin-top: 5px; border: 1px solid #ddd; border-radius: 5px;">
+                        <option>Full Grooming Package</option>
+                        <option>Bath & Brush Only</option>
+                        <option>Puppy's First Groom</option>
+                        <option>Nail Trim / Ala Carte</option>
+                    </select>
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <label>Preferred Date</label>
+                    <input type="date" required style="width: 100%; padding: 12px; margin-top: 5px; border: 1px solid #ddd; border-radius: 5px;">
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Request Appointment</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

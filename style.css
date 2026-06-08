@@ -357,6 +357,12 @@ button {
     justify-content: center;
 }
 
+@media (max-width: 768px) {
+    .hero {
+        background-attachment: scroll;
+    }
+}
+
 .hero::before {
     content: '';
     position: absolute;
@@ -443,14 +449,11 @@ button {
     font-size: 1.3rem;
     max-width: 700px;
     margin: 0 auto 40px;
-    color: var(--white);
+    color: var(--orange);
     line-height: 1.8;
     animation: fadeInUp 0.8s ease-out 0.6s both;
     font-weight: 500;
-    background: var(--orange);
-    padding: 25px 40px;
-    border-radius: 15px;
-    box-shadow: 0 8px 25px rgba(255, 140, 66, 0.4);
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
 }
 
 .hero-btns {
@@ -644,73 +647,145 @@ button {
 }
 
 /* ============================================
-   TESTIMONIALS SECTION
+   REVIEWS SECTION
    ============================================ */
 
-.testimonials {
+.reviews-section {
     padding: 100px 0;
     background: var(--black);
     border-top: 2px solid var(--gold);
     border-bottom: 2px solid var(--gold);
 }
 
-.testimonials h2 {
+.reviews-section h2 {
     font-size: 3rem;
     color: var(--white);
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 70px;
     font-weight: 900;
 }
 
-.testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+.google-reviews-showcase {
+    display: flex;
+    justify-content: center;
 }
 
-.testimonial-card {
-    background: var(--black-light);
-    padding: 40px;
-    border-radius: 20px;
+.google-reviews-card {
+    background: linear-gradient(135deg, rgba(255, 140, 66, 0.1) 0%, rgba(212, 175, 55, 0.1) 100%);
     border: 2px solid var(--gold);
-    position: relative;
-    animation: fadeInUp 0.6s ease-out;
+    padding: 80px 70px;
+    border-radius: 25px;
+    text-align: center;
+    animation: scaleIn 0.6s ease-out;
+    box-shadow: 0 20px 60px rgba(212, 175, 55, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    max-width: 550px;
+    width: 100%;
 }
 
-.testimonial-card::before {
-    content: '"';
-    position: absolute;
-    top: -20px;
-    left: 20px;
-    font-size: 5rem;
-    color: var(--orange);
-    opacity: 0.5;
-}
-
-.stars {
-    color: var(--gold);
-    font-size: 1.2rem;
-    margin-bottom: 15px;
-    letter-spacing: 3px;
-}
-
-.testimonial-text {
-    color: #ddd;
-    line-height: 1.8;
-    margin-bottom: 25px;
-    font-size: 1rem;
-}
-
-.testimonial-author {
-    color: var(--gold);
+.google-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
     font-weight: 700;
-    font-size: 1.1rem;
+    color: var(--white);
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.testimonial-author-title {
+.google-badge i {
+    font-size: 1.2rem;
     color: var(--orange);
-    font-size: 0.9rem;
-    font-weight: 500;
+}
+
+.rating-display {
+    margin: 40px 0;
+}
+
+.rating-number {
+    font-size: 4.5rem;
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 15px;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--orange) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.stars-large {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    font-size: 2.2rem;
+}
+
+.stars-large i {
+    color: var(--gold);
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+}
+
+.review-count {
+    color: #ccc;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.review-highlight {
+    margin-top: 35px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.review-highlight p {
+    color: var(--orange);
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+
+@media (max-width: 768px) {
+    .reviews-section h2 {
+        font-size: 2rem;
+        margin-bottom: 50px;
+    }
+
+    .google-reviews-card {
+        padding: 60px 40px;
+    }
+
+    .rating-number {
+        font-size: 3rem;
+    }
+
+    .stars-large {
+        font-size: 1.5rem;
+        gap: 6px;
+    }
+
+    .review-count {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .google-reviews-card {
+        padding: 40px 25px;
+    }
+
+    .rating-number {
+        font-size: 2.5rem;
+    }
+
+    .stars-large {
+        font-size: 1.2rem;
+    }
 }
 
 /* ============================================
@@ -1166,12 +1241,17 @@ footer a:hover {
         grid-template-columns: 1fr;
     }
 
-    .testimonials-grid {
+    .info-grid {
         grid-template-columns: 1fr;
     }
 
-    .info-grid {
-        grid-template-columns: 1fr;
+    .reviews-section h2 {
+        font-size: 2rem;
+        margin-bottom: 50px;
+    }
+
+    .google-reviews-card {
+        padding: 60px 40px;
     }
 
     .pricing-grid {
@@ -1182,12 +1262,17 @@ footer a:hover {
         font-size: 2rem;
     }
 
-    .testimonials h2 {
+    .cta-section h2 {
         font-size: 2rem;
     }
 
-    .cta-section h2 {
+    .reviews-section {
+        padding: 80px 0;
+    }
+
+    .reviews-section h2 {
         font-size: 2rem;
+        margin-bottom: 40px;
     }
 
     .footer-grid {
@@ -1196,17 +1281,26 @@ footer a:hover {
 }
 
 @media (max-width: 480px) {
+    .hero {
+        padding: 60px 0;
+        min-height: auto;
+    }
+
     .hero h1 {
         font-size: 2rem;
+        margin-bottom: 15px;
     }
 
     .hero > .container > p {
         font-size: 1rem;
+        margin-bottom: 30px;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
     }
 
     .badge {
         font-size: 0.75rem;
         padding: 8px 16px;
+        margin-bottom: 15px;
     }
 
     .btn-lg {
@@ -1216,6 +1310,11 @@ footer a:hover {
 
     .hero-btns {
         gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .urgency-tag {
+        font-size: 0.9rem;
     }
 
     .service-grid {
@@ -1225,6 +1324,38 @@ footer a:hover {
 
     .service-card {
         padding: 25px;
+    }
+
+    .reviews-section {
+        padding: 60px 0;
+    }
+
+    .reviews-section h2 {
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+    }
+
+    .google-reviews-card {
+        padding: 40px 25px;
+        max-width: 100%;
+    }
+
+    .rating-number {
+        font-size: 2.5rem;
+    }
+
+    .stars-large {
+        font-size: 1.2rem;
+        gap: 4px;
+    }
+
+    .google-badge {
+        font-size: 0.85rem;
+        gap: 8px;
+    }
+
+    .review-count {
+        font-size: 0.95rem;
     }
 
     .phone-display {
@@ -1245,6 +1376,16 @@ footer a:hover {
 
     .hours-table {
         padding: 25px;
+    }
+
+    .home-services h2 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+
+    .home-services > .container > p {
+        font-size: 1rem;
+        margin-bottom: 30px;
     }
 }
 

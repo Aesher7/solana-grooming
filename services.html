@@ -3,218 +3,228 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services & Pricing | Solana Dog Grooming</title>
-    <meta name="description" content="Comprehensive dog grooming services and pricing. From basic baths to full grooming, specialty treatments, and add-ons. Affordable premium care in Craig, CO.">
+    <title>Services &amp; Pricing | Solana Dog Spa</title>
+    <meta name="description" content="Dog grooming prices in Craig, CO. Base grooming by size, add-on services, specialty cuts, and special handling at Solana Dog Spa.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Space+Grotesk:wght@300..700&family=Space+Mono:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha384-iw3OoTErCYJJB9mCa8LNS2hbsQ7M3C0EpIsO/H5+EGAkPGc6rk+V8i04oW/K5xq0" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- HEADER -->
-    <header class="sticky-header">
-        <div class="container nav-container">
-            <a href="index.html" class="logo">
-                <i class="fas fa-spa"></i>
-                <span>Solana</span>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- NAV -->
+    <header class="nav">
+        <div class="nav__inner">
+            <a href="index.html" class="nav__mark">
+                <i class="fas fa-paw" aria-hidden="true"></i> Solana
             </a>
-            <nav class="desktop-nav">
+            <nav class="nav__links" aria-label="Primary">
                 <a href="index.html">Home</a>
-                <a href="services.html" class="active">Services</a>
+                <a href="services.html" aria-current="page">Services</a>
                 <a href="hours.html">Hours</a>
+                <a href="booking.html">Book</a>
             </nav>
-            <div class="header-ctas">
-                <a href="tel:9703269788" class="phone-link"><i class="fas fa-phone"></i> (970) 326-9788</a>
-                <a href="booking.html" class="btn btn-primary">Book Now</a>
+            <div class="nav__right">
+                <a href="tel:9703269788" class="nav__phone">(970) 326-9788</a>
+                <button class="kbd-btn" data-palette-open aria-haspopup="dialog">
+                    <i class="fas fa-terminal" aria-hidden="true"></i>
+                    <span class="kbd-btn__label--kbd">&#8984;K</span>
+                    <span class="kbd-btn__label--menu">Menu</span>
+                </button>
             </div>
-            <button class="mobile-menu-toggle"><i class="fas fa-bars"></i></button>
         </div>
+        <div class="progress" aria-hidden="true"></div>
     </header>
 
-    <!-- HERO SECTION -->
-    <section class="services-hero">
-        <div class="container text-center">
-            <h1>Services & Pricing</h1>
-            <p style="color: #ccc; font-size: 1.2rem; margin-top: 20px; max-width: 700px; margin-left: auto; margin-right: auto;">Quality grooming for every pup, every budget. Transparent pricing, zero surprises.</p>
-        </div>
-    </section>
+    <main id="main">
+        <!-- PAGE HEAD -->
+        <section class="pagehead">
+            <div class="wash wash--a" aria-hidden="true"></div>
+            <div class="container">
+                <p class="eyebrow">Services</p>
+                <h1 data-reveal-hero>Pricing, plainly</h1>
+                <p class="prose" data-hero-stagger>Base grooming is priced by size and coat. Everything beyond that is listed below so there are no surprises at pickup.</p>
+            </div>
+        </section>
 
-    <!-- SERVICES CONTENT -->
-    <section class="services-content">
-        <div class="container">
-            <!-- BASE GROOMING SECTION -->
-            <div class="pricing-section fade-in">
-                <h2>Base Grooming Prices</h2>
-                <p class="pricing-section-desc">Standard grooming includes: bath, blow dry, nail trim, ear cleaning, and sanitary trim. Prices vary based on dog size and coat condition.</p>
+        <!-- BASE GROOMING -->
+        <section class="section">
+            <div class="container">
+                <div class="section__head">
+                    <p class="eyebrow">01 &mdash; Base Grooming</p>
+                    <h2 data-reveal>Priced by size</h2>
+                    <p class="prose">Every base groom includes bath, blow dry, nail trim, ear cleaning, and a sanitary trim. Range reflects coat condition and length.</p>
+                </div>
 
-                <div class="pricing-grid">
-                    <div class="pricing-card fade-in-delay-1">
+                <div class="sizes" data-verb="tilt">
+                    <article class="card">
+                        <span class="card__index">S</span>
                         <h3>Small Dogs</h3>
-                        <p>Chihuahuas, Yorkies, Maltese, etc.</p>
-                        <div class="price-range">$48 - $78</div>
-                    </div>
-
-                    <div class="pricing-card fade-in-delay-2">
+                        <p>Up to roughly 20 lbs.</p>
+                        <span class="price"><small>Range</small>$48&ndash;$78</span>
+                    </article>
+                    <article class="card card--tint">
+                        <span class="card__index">M</span>
                         <h3>Medium Dogs</h3>
-                        <p>Beagles, Cocker Spaniels, Bulldogs, etc.</p>
-                        <div class="price-range">$78 - $93</div>
-                    </div>
-
-                    <div class="pricing-card fade-in-delay-3">
+                        <p>Roughly 20&ndash;50 lbs.</p>
+                        <span class="price"><small>Range</small>$78&ndash;$93</span>
+                    </article>
+                    <article class="card">
+                        <span class="card__index">L</span>
                         <h3>Large Dogs</h3>
-                        <p>Labs, Golden Retrievers, Huskies, etc.</p>
-                        <div class="price-range">$88 - $118</div>
-                    </div>
-
-                    <div class="pricing-card fade-in-delay-4">
+                        <p>Roughly 50&ndash;80 lbs.</p>
+                        <span class="price"><small>Range</small>$88&ndash;$118</span>
+                    </article>
+                    <article class="card">
+                        <span class="card__index">XL</span>
                         <h3>XL Dogs</h3>
-                        <p>Great Danes, St. Bernards, etc.</p>
-                        <div class="price-range">$100 - $150+</div>
-                    </div>
+                        <p>80 lbs and up, or heavy double coats.</p>
+                        <span class="price"><small>Range</small>$100&ndash;$150+</span>
+                    </article>
                 </div>
 
-                <div style="background: #f0f0f0; padding: 30px; border-radius: 20px; margin-top: 50px;">
-                    <h3 style="color: var(--black); margin-bottom: 20px; font-weight: 700;">Special Handling</h3>
-                    <p style="color: var(--gray-darker); margin-bottom: 20px;">Dogs that require extra care, anxiety management, or have behavioral concerns:</p>
-                    <div style="font-size: 1.3rem; color: var(--orange); font-weight: 700;">$10 - $45 Additional</div>
-                    <p style="color: var(--gray-darker); margin-top: 15px; font-size: 0.95rem;">We're experienced with rescue dogs, seniors, and nervous pups. Every dog deserves patient, gentle care.</p>
-                </div>
-            </div>
-
-            <!-- ADD-ONS SECTION -->
-            <div class="pricing-section fade-in" style="margin-top: 80px;">
-                <h2>Add-On Services</h2>
-                <p class="pricing-section-desc">Enhance your pup's grooming experience with these premium add-ons.</p>
-
-                <div class="pricing-grid">
-                    <div class="pricing-card fade-in-delay-1">
-                        <h3><i class="fas fa-tooth"></i> Teeth Brushing</h3>
-                        <p>Professional dental care for your pup's smile</p>
-                        <div class="price-range">$10</div>
-                    </div>
-
-                    <div class="pricing-card fade-in-delay-2">
-                        <h3><i class="fas fa-heart"></i> Anal Gland Care</h3>
-                        <p>Express anal glands safely and comfortably</p>
-                        <div class="price-range">$10</div>
-                    </div>
-
-                    <div class="pricing-card fade-in-delay-3">
-                        <h3><i class="fas fa-snowflake"></i> De-Shed Treatment</h3>
-                        <p>Reduces shedding and promotes healthy coat</p>
-                        <div class="price-range">$10 - $50</div>
-                    </div>
-
-                    <div class="pricing-card fade-in-delay-4">
-                        <h3><i class="fas fa-palette"></i> Specialty Cuts</h3>
-                        <p>Creative grooming styles and custom trims</p>
-                        <div class="price-range">$10 - $50</div>
-                    </div>
-
-                    <div class="pricing-card fade-in-delay-1">
-                        <h3><i class="fas fa-spa"></i> Paw Cream Treatment</h3>
-                        <p>Moisturize and protect dry, cracked paws</p>
-                        <div class="price-range">$10</div>
-                    </div>
-
-                    <div class="pricing-card fade-in-delay-2">
-                        <h3><i class="fas fa-sun"></i> Spa Treatment</h3>
-                        <p>Premium shampoo and conditioning package</p>
-                        <div class="price-range">$15 - $35</div>
-                    </div>
+                <div class="note">
+                    <p class="meta">Special Handling &middot; $10&ndash;$45</p>
+                    <h3 style="margin-top:var(--s16)">Some dogs need more time</h3>
+                    <p class="prose">Anxious dogs, rescues, seniors, and dogs with behavioural concerns are welcome here &mdash; they simply take longer and are priced accordingly. Tell us when you call and we will plan the appointment around it.</p>
                 </div>
             </div>
+        </section>
 
-            <!-- SPECIALTY CUTS SECTION -->
-            <div class="pricing-section fade-in" style="margin-top: 80px; margin-bottom: 80px;">
-                <h2>Specialty Cut Options</h2>
-                <p class="pricing-section-desc">Add any of these specialty cuts to your grooming package (additional $10-$50):</p>
+        <!-- ADD-ONS -->
+        <section class="section section--alt">
+            <div class="wash wash--b" aria-hidden="true"></div>
+            <div class="container">
+                <div class="section__head">
+                    <p class="eyebrow">02 &mdash; Add-Ons</p>
+                    <h2 data-reveal>Add to any groom</h2>
+                    <p class="prose">Priced individually and added to a base groom. Ask when you book, or decide at drop-off.</p>
+                </div>
 
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
-                    <div class="pricing-card fade-in-delay-1">
-                        <i class="fas fa-scissors" style="font-size: 2rem; color: var(--orange); margin-bottom: 15px;"></i>
-                        <h3>Hand Scissor Finish</h3>
-                        <p>Precise hand-scissored edges for a polished, show-quality look.</p>
-                    </div>
-
-                    <div class="pricing-card fade-in-delay-2">
-                        <i class="fas fa-shoe-prints" style="font-size: 2rem; color: var(--orange); margin-bottom: 15px;"></i>
-                        <h3>Clean Feet</h3>
-                        <p>Trimmed paw pads and hair between toes for a neat appearance.</p>
-                    </div>
-
-                    <div class="pricing-card fade-in-delay-3">
-                        <i class="fas fa-face-grin" style="font-size: 2rem; color: var(--orange); margin-bottom: 15px;"></i>
-                        <h3>Clean Face</h3>
-                        <p>Carefully trimmed facial hair for clear eyes and a fresh look.</p>
-                    </div>
-
-                    <div class="pricing-card fade-in-delay-4">
-                        <i class="fas fa-cloud" style="font-size: 2rem; color: var(--orange); margin-bottom: 15px;"></i>
-                        <h3>Lamb Cut</h3>
-                        <p>Uniform length throughout the body—perfect for curly and wavy coats.</p>
-                    </div>
-
-                    <div class="pricing-card fade-in-delay-1">
-                        <i class="fas fa-star" style="font-size: 2rem; color: var(--orange); margin-bottom: 15px;"></i>
-                        <h3>Puppy Cut</h3>
-                        <p>Short, even length all over—low maintenance and adorable.</p>
-                    </div>
-
-                    <div class="pricing-card fade-in-delay-2">
-                        <i class="fas fa-crown" style="font-size: 2rem; color: var(--orange); margin-bottom: 15px;"></i>
-                        <h3>Show Cut</h3>
-                        <p>Breed-specific standards for show preparation and competition.</p>
+                <div class="group" style="margin-top:0">
+                    <p class="group__label">Treatments</p>
+                    <div class="chips" data-verb="chips">
+                        <span class="chip"><i class="fas fa-tooth" aria-hidden="true"></i> Teeth Brushing <span class="chip__val">$10</span></span>
+                        <span class="chip"><i class="fas fa-heart" aria-hidden="true"></i> Anal Gland Care <span class="chip__val">$10</span></span>
+                        <span class="chip"><i class="fas fa-snowflake" aria-hidden="true"></i> De-Shed Treatment <span class="chip__val">$10&ndash;$50</span></span>
+                        <span class="chip"><i class="fas fa-palette" aria-hidden="true"></i> Specialty Cuts <span class="chip__val">$10&ndash;$50</span></span>
+                        <span class="chip"><i class="fas fa-hand-holding-droplet" aria-hidden="true"></i> Paw Cream Treatment <span class="chip__val">$10</span></span>
+                        <span class="chip"><i class="fas fa-sun" aria-hidden="true"></i> Spa Treatment <span class="chip__val">$15&ndash;$35</span></span>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- CTA SECTION -->
-    <section class="cta-section">
-        <div class="container text-center">
-            <h2>Questions About Services?</h2>
-            <p>Give us a call! We're happy to discuss your pup's specific needs and recommend the perfect package.</p>
-            <a href="tel:9703269788" class="btn btn-primary btn-lg">Call (970) 326-9788</a>
-        </div>
-    </section>
+                <div class="group">
+                    <p class="group__label">Specialty Cuts</p>
+                    <div class="chips" data-verb="chips">
+                        <span class="chip">Hand Scissor Finish</span>
+                        <span class="chip">Clean Feet</span>
+                        <span class="chip">Clean Face</span>
+                        <span class="chip">Lamb Cut</span>
+                        <span class="chip">Puppy Cut</span>
+                        <span class="chip">Show Cut</span>
+                    </div>
+                    <p class="prose" style="margin-top:var(--s24);font-size:var(--t14)">Scissor finishes and breed-standard styles are quoted within the $10&ndash;$50 specialty range depending on coat and complexity. Not sure which suits your dog? We will tell you honestly on the phone.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CLOSING -->
+        <section class="section closing">
+            <div class="container" data-verb="calm">
+                <p class="eyebrow">Booking</p>
+                <h2 data-reveal>Get a quote for your dog</h2>
+                <p class="prose">Coat, size, and condition all move the number. One short call and we can give you a real figure rather than a range.</p>
+                <div><a href="booking.html" class="btn btn--primary" data-magnetic>Book an Appointment</a></div>
+            </div>
+        </section>
+    </main>
 
     <!-- FOOTER -->
-    <footer>
-        <div class="container footer-grid">
-            <div>
-                <h3>Solana Dog Grooming</h3>
-                <p>Craig's premier dog grooming experience. Cage-free, stress-free, and full of love for your furry family members.</p>
-                <div class="social-links">
-                    <a href="https://www.facebook.com/p/Solana-Dog-Spa-61573825206247/" title="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div>
+                    <h3>Solana Dog Spa</h3>
+                    <p>Craig's premier dog grooming experience. Cage-free, stress-free, and full of care for your furry family members.</p>
+                    <div class="social">
+                        <a href="https://www.facebook.com/p/Solana-Dog-Spa-61573825206247/" target="_blank" rel="noopener" aria-label="Solana Dog Spa on Facebook">
+                            <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4>Navigate</h4>
+                    <nav class="footer__links" aria-label="Footer">
+                        <a href="index.html">Home</a>
+                        <a href="services.html">Services &amp; Pricing</a>
+                        <a href="hours.html">Hours &amp; Contact</a>
+                        <a href="booking.html">Book Now</a>
+                        <a href="privacy.html">Privacy Policy</a>
+                    </nav>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <address>
+                        <span><i class="fas fa-location-dot" aria-hidden="true"></i>575 Yampa Ave, Craig, CO 81625</span>
+                        <span><i class="fas fa-phone" aria-hidden="true"></i><a href="tel:9703269788">(970) 326-9788</a></span>
+                        <span><i class="fas fa-envelope" aria-hidden="true"></i><a href="mailto:solanadogspa@gmail.com">solanadogspa@gmail.com</a></span>
+                    </address>
+                </div>
+                <div>
+                    <h4>Hours</h4>
+                    <address>
+                        <span>Mon &mdash; Closed</span>
+                        <span>Tue&ndash;Sat &mdash; 9:00&ndash;4:00</span>
+                        <span>Sun &mdash; Closed</span>
+                    </address>
                 </div>
             </div>
-            <div>
-                <h4>Quick Links</h4>
-                <a href="index.html">Home</a><br>
-                <a href="services.html">Services & Pricing</a><br>
-                <a href="hours.html">Hours & Contact</a><br>
-                <a href="booking.html">Book Now</a><br>
-                <a href="privacy.html">Privacy Policy</a>
+            <div class="footer__bottom">
+                <p>&copy; 2026 Solana Dog Spa</p>
+                <p>Craig, Colorado</p>
             </div>
-            <div>
-                <h4>Contact</h4>
-                <p>📍 575 Yampa Ave<br>Craig, CO 81625</p>
-                <p>📞 <a href="tel:9703269788">(970) 326-9788</a></p>
-                <p>✉️ <a href="mailto:solanadogspa@gmail.com">solanadogspa@gmail.com</a></p>
-            </div>
-            <div>
-                <h4>Hours</h4>
-                <p>Monday: Closed<br>
-                Tuesday - Saturday<br>
-                9:00 AM - 4:00 PM<br>
-                Sunday: Closed</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Solana Dog Grooming. All rights reserved. Giving pups the pampering they deserve.</p>
         </div>
     </footer>
 
+    <!-- COMMAND PALETTE -->
+    <div class="palette" data-palette role="dialog" aria-modal="true" aria-label="Command palette" aria-hidden="true">
+        <div class="palette__panel">
+            <input class="palette__input" data-palette-input type="text" placeholder="Type a command&hellip;" aria-label="Search commands" autocomplete="off">
+            <div class="palette__list" data-palette-list role="listbox">
+                <a class="palette__item" href="tel:9703269788" data-keywords="phone call ring contact">
+                    <i class="fas fa-phone" aria-hidden="true"></i> Call the shop <small>(970) 326-9788</small>
+                </a>
+                <a class="palette__item" href="booking.html" data-keywords="book appointment schedule">
+                    <i class="fas fa-calendar-check" aria-hidden="true"></i> Book an appointment
+                </a>
+                <a class="palette__item" href="services.html" data-keywords="services pricing prices cost groom">
+                    <i class="fas fa-scissors" aria-hidden="true"></i> Services &amp; pricing
+                </a>
+                <a class="palette__item" href="hours.html" data-keywords="hours open times contact map">
+                    <i class="fas fa-clock" aria-hidden="true"></i> Hours &amp; contact
+                </a>
+                <a class="palette__item" href="https://maps.google.com/?q=575+Yampa+Ave+Craig+CO+81625" target="_blank" rel="noopener" data-keywords="directions map address location">
+                    <i class="fas fa-location-dot" aria-hidden="true"></i> Get directions
+                </a>
+                <a class="palette__item" href="mailto:solanadogspa@gmail.com" data-keywords="email mail contact">
+                    <i class="fas fa-envelope" aria-hidden="true"></i> Email us
+                </a>
+                <a class="palette__item" href="index.html" data-keywords="home start">
+                    <i class="fas fa-house" aria-hidden="true"></i> Home
+                </a>
+                <a class="palette__item" href="privacy.html" data-keywords="privacy policy legal data">
+                    <i class="fas fa-shield-halved" aria-hidden="true"></i> Privacy policy
+                </a>
+                <p class="palette__empty" data-palette-empty hidden>No matches</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="script.js"></script>
 </body>
 </html>

@@ -3,212 +3,305 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solana Dog Grooming | Premium Pet Care in Craig, CO</title>
-    <meta name="description" content="Premium dog grooming in Craig, Colorado. Expert care, stress-free environment, cage-free grooming. Book your pup's spa day at Solana Dog Grooming.">
+    <title>Solana Dog Spa | Premium Dog Grooming in Craig, CO</title>
+    <meta name="description" content="Premium dog grooming in Craig, Colorado. Expert care, stress-free environment, cage-free grooming. Book your pup's spa day at Solana Dog Spa.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Space+Grotesk:wght@300..700&family=Space+Mono:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha384-iw3OoTErCYJJB9mCa8LNS2hbsQ7M3C0EpIsO/H5+EGAkPGc6rk+V8i04oW/K5xq0" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- HEADER -->
-    <header class="sticky-header">
-        <div class="container nav-container">
-            <a href="index.html" class="logo">
-                <i class="fas fa-spa"></i>
-                <span>Solana</span>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- NAV -->
+    <header class="nav">
+        <div class="nav__inner">
+            <a href="index.html" class="nav__mark">
+                <i class="fas fa-paw" aria-hidden="true"></i> Solana
             </a>
-            <nav class="desktop-nav">
-                <a href="index.html" class="active">Home</a>
+            <nav class="nav__links" aria-label="Primary">
+                <a href="index.html" aria-current="page">Home</a>
                 <a href="services.html">Services</a>
                 <a href="hours.html">Hours</a>
+                <a href="booking.html">Book</a>
             </nav>
-            <div class="header-ctas">
-                <a href="tel:9703269788" class="phone-link"><i class="fas fa-phone"></i> (970) 326-9788</a>
-                <a href="booking.html" class="btn btn-primary">Book Now</a>
+            <div class="nav__right">
+                <a href="tel:9703269788" class="nav__phone">(970) 326-9788</a>
+                <button class="kbd-btn" data-palette-open aria-haspopup="dialog">
+                    <i class="fas fa-terminal" aria-hidden="true"></i>
+                    <span class="kbd-btn__label--kbd">&#8984;K</span>
+                    <span class="kbd-btn__label--menu">Menu</span>
+                </button>
             </div>
-            <button class="mobile-menu-toggle"><i class="fas fa-bars"></i></button>
         </div>
+        <div class="progress" aria-hidden="true"></div>
     </header>
 
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <div class="hero-logo-backdrop"></div>
-        <div class="container">
-            <div class="hero-content">
-                <span class="badge">Craig's Premier Dog Groomer</span>
-                <h1 class="hero-with-logo">Pampered Pups, <span>Happy Owners</span></h1>
-                <p>Expert grooming services for dogs of all sizes. Cage-free, stress-free, and filled with love. Your pup deserves the best—and we deliver it.</p>
-                <div class="hero-btns">
-                    <a href="booking.html" class="btn btn-primary btn-lg">Book an Appointment</a>
-                    <a href="services.html" class="btn btn-outline-white btn-lg">View Services & Pricing</a>
-                </div>
-                <p class="urgency-tag"><i class="fas fa-calendar-check"></i> Schedule Your Pup's Spa Day Today</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- TRUST BAR -->
-    <section class="trust-bar">
-        <div class="container trust-flex">
-            <div class="trust-item">
-                <i class="fas fa-shield-alt"></i>
-                <span>Fully Insured & Licensed</span>
-            </div>
-            <div class="trust-item">
-                <i class="fas fa-certificate"></i>
-                <span>Certified Professionals</span>
-            </div>
-            <div class="trust-item">
-                <i class="fas fa-leaf"></i>
-                <span>100% Pet-Safe Products</span>
-            </div>
-            <div class="trust-item">
-                <i class="fas fa-star"></i>
-                <span>Cage-Free Environment</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- SERVICES SECTION -->
-    <section class="home-services">
-        <div class="container text-center">
-            <h2>Our Signature Services</h2>
-            <p>From basic baths to full grooming, we treat every dog with care and expertise</p>
-
-            <div class="service-grid">
-                <div class="service-card fade-in-delay-1">
-                    <i class="fas fa-bath"></i>
-                    <h3>The Refresh Bath</h3>
-                    <p>Organic shampoo, blow dry, ear cleaning, and nail trim. Perfect for maintaining your pup between full grooms.</p>
-                    <span class="price">Starting at $45</span>
-                </div>
-
-                <div class="service-card featured fade-in-delay-2">
-                    <i class="fas fa-cut"></i>
-                    <h3>The Full Groom</h3>
-                    <p>Complete bath, breed-standard haircut, nail grinding, paw pad trim, and ear cleaning. Our most popular service.</p>
-                    <span class="price">Starting at $65</span>
-                </div>
-
-                <div class="service-card fade-in-delay-3">
-                    <i class="fas fa-paw"></i>
-                    <h3>Quick Care</h3>
-                    <p>Express nail trims, paw balm treatments, and spot cleaning. Perfect for quick maintenance visits.</p>
-                    <span class="price">From $20</span>
-                </div>
-            </div>
-
-            <div class="mt-60">
-                <a href="services.html" class="btn btn-secondary btn-lg">See Full Menu & Pricing</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- REVIEWS SECTION -->
-    <section class="reviews-section">
-        <div class="container">
-            <h2>Trusted by Craig's Dog Parents</h2>
-
-            <div class="google-reviews-showcase">
-                <div class="google-reviews-card">
-                    <div class="google-badge">
-                        <i class="fab fa-google"></i>
-                        <span>Google Reviews</span>
-                    </div>
-
-                    <div class="rating-display">
-                        <div class="rating-number">4.7</div>
-                        <div class="stars-large">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
+    <main id="main">
+        <!-- HERO -->
+        <section class="hero">
+            <div class="hero__media" aria-hidden="true"></div>
+            <div class="wash wash--a" aria-hidden="true"></div>
+            <div class="container">
+                <div class="hero__inner">
+                    <p class="eyebrow">Craig, Colorado &middot; Est. Cage-Free</p>
+                    <h1 data-reveal-hero>Pampered Pups, <span class="em">Happy Owners</span></h1>
+                    <div data-hero-stagger>
+                        <p>Expert grooming for dogs of every size. Cage-free, unhurried, and handled by people who know what they are doing.</p>
+                        <div class="hero__actions">
+                            <a href="booking.html" class="btn btn--primary" data-magnetic>Book an Appointment</a>
+                            <a href="services.html" class="btn btn--ghost">View Pricing</a>
                         </div>
-                        <div class="review-count">12 reviews</div>
-                    </div>
-
-                    <div class="review-highlight">
-                        <p>🐕 Loved by dog parents in Craig, CO</p>
+                        <div class="hero__meta">
+                            <div>Rating <strong>4.7 / 5.0</strong></div>
+                            <div>Reviews <strong>12 on Google</strong></div>
+                            <div>Open <strong>Tue&ndash;Sat &middot; 9&ndash;4</strong></div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- HOURS PREVIEW SECTION -->
-    <section class="home-services">
-        <div class="container">
-            <div style="max-width: 500px; margin: 0 auto;">
-                <h2 style="font-size: 2rem; text-align: center;">Visit Us</h2>
-                <p style="text-align: center; margin-bottom: 40px; color: var(--gray-darker);">Located in the heart of Craig, CO</p>
+            <div class="badge-ring" aria-hidden="true">
+                <svg viewBox="0 0 132 132">
+                    <defs>
+                        <path id="ringpath" d="M66,66 m-48,0 a48,48 0 1,1 96,0 a48,48 0 1,1 -96,0"></path>
+                    </defs>
+                    <text>
+                        <textPath href="#ringpath" startOffset="0">Solana Dog Spa &middot; Craig Colorado &middot; Cage Free &middot;</textPath>
+                    </text>
+                </svg>
+                <i class="fas fa-paw"></i>
+            </div>
+        </section>
 
-                <div class="info-card" style="margin-bottom: 40px;">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <h3>Address</h3>
-                    <p>575 Yampa Ave<br>Craig, CO 81625</p>
-                </div>
-
-                <div class="info-card" style="margin-bottom: 40px;">
-                    <i class="fas fa-clock"></i>
-                    <h3>Hours</h3>
-                    <p>Tuesday - Saturday<br>9:00 AM - 4:00 PM<br><br>Sunday & Monday<br>Closed</p>
-                </div>
-
-                <div class="info-card">
-                    <i class="fas fa-phone"></i>
-                    <h3>Call Us</h3>
-                    <p><a href="tel:9703269788" style="color: var(--orange); font-weight: 700;">(970) 326-9788</a></p>
+        <!-- CREDENTIALS -->
+        <section class="section section--alt section--slim">
+            <div class="container">
+                <div class="group" style="margin-top:0">
+                    <p class="group__label">Credentials</p>
+                    <div class="chips" data-verb="chips">
+                        <span class="chip"><i class="fas fa-shield-halved" aria-hidden="true"></i> Fully Insured &amp; Licensed</span>
+                        <span class="chip"><i class="fas fa-certificate" aria-hidden="true"></i> Certified Professionals</span>
+                        <span class="chip"><i class="fas fa-leaf" aria-hidden="true"></i> 100% Pet-Safe Products</span>
+                        <span class="chip"><i class="fas fa-house-chimney" aria-hidden="true"></i> Cage-Free Environment</span>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- CTA SECTION -->
-    <section class="cta-section">
-        <div class="container text-center">
-            <h2>Ready to Pamper Your Pup?</h2>
-            <p>Give your furry friend the premium grooming experience they deserve. Book an appointment with Solana Dog Grooming today.</p>
-            <a href="booking.html" class="btn btn-primary btn-lg">Schedule an Appointment</a>
-        </div>
-    </section>
+        <!-- SERVICES -->
+        <section class="section">
+            <div class="wash wash--b" aria-hidden="true"></div>
+            <div class="container">
+                <div class="section__head">
+                    <p class="eyebrow">01 &mdash; Services</p>
+                    <h2 data-reveal>Signature Services</h2>
+                    <p class="prose">From a maintenance bath to a full breed-standard groom, every dog gets the same unhurried attention.</p>
+                </div>
+
+                <div class="spangrid" data-verb="settle">
+                    <article class="card" data-tilt>
+                        <span class="card__index">01</span>
+                        <i class="fas fa-scissors card__icon" aria-hidden="true"></i>
+                        <h3>The Full Groom</h3>
+                        <p>Complete bath, breed-standard haircut, nail grinding, paw pad trim, and ear cleaning. Our most requested service, and the one most dogs need.</p>
+                        <span class="price"><small>Starting at</small>$65</span>
+                    </article>
+
+                    <article class="card">
+                        <span class="card__index">02</span>
+                        <i class="fas fa-bath card__icon" aria-hidden="true"></i>
+                        <h3>The Refresh Bath</h3>
+                        <p>Organic shampoo, blow dry, ear cleaning, and nail trim. Keeps a coat right between full grooms.</p>
+                        <span class="price"><small>Starting at</small>$45</span>
+                    </article>
+
+                    <article class="card">
+                        <span class="card__index">03</span>
+                        <i class="fas fa-paw card__icon" aria-hidden="true"></i>
+                        <h3>Quick Care</h3>
+                        <p>Express nail trims, paw balm, and spot cleaning. In and out.</p>
+                        <span class="price"><small>From</small>$20</span>
+                    </article>
+
+                    <div class="spangrid__cta">
+                        <p class="eyebrow">Full menu</p>
+                        <h3>Prices by size, add-ons, and specialty cuts</h3>
+                        <p class="prose">Small through XL, de-shed treatments, spa add-ons, and six specialty cut styles &mdash; all listed plainly.</p>
+                        <div><a href="services.html" class="btn btn--ghost">See Full Pricing</a></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- REVIEWS -->
+        <section class="section section--alt">
+            <div class="container">
+                <div class="section__head">
+                    <p class="eyebrow">02 &mdash; Reputation</p>
+                    <h2 data-reveal>Trusted by Craig's dog parents</h2>
+                </div>
+
+                <div class="overlap">
+                    <article class="card overlap__a">
+                        <span class="card__index"><i class="fab fa-google" aria-hidden="true"></i></span>
+                        <p class="meta">Google Reviews</p>
+                        <div class="rating">
+                            <span class="rating__num">4.7</span>
+                            <span class="rating__stars" aria-hidden="true">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-stroke"></i>
+                            </span>
+                        </div>
+                        <p class="visually-hidden">Rated 4.7 out of 5 stars from 12 Google reviews.</p>
+                        <div class="rating__meta">
+                            <p class="meta">12 reviews &middot; Craig, CO</p>
+                        </div>
+                    </article>
+
+                    <article class="card overlap__b" data-verb="place">
+                        <p class="meta">Why people come back</p>
+                        <h3 style="margin-top:var(--s16)">Loved by dog parents in Craig</h3>
+                        <p>Small shop, no cages, no rushing. Dogs get worked with one at a time, and nervous ones get as long as they need.</p>
+                        <div style="margin-top:var(--s24)">
+                            <a class="tlink" href="https://www.facebook.com/p/Solana-Dog-Spa-61573825206247/" target="_blank" rel="noopener">Find us on Facebook</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- VISIT -->
+        <section class="section">
+            <div class="container">
+                <div class="section__head">
+                    <p class="eyebrow">03 &mdash; Visit</p>
+                    <h2 data-reveal>Find us in Craig</h2>
+                </div>
+
+                <div class="bento" data-verb="tilt">
+                    <div class="card bento__cell">
+                        <i class="fas fa-location-dot card__icon" aria-hidden="true"></i>
+                        <h3>Address</h3>
+                        <address>575 Yampa Ave<br>Craig, CO 81625</address>
+                    </div>
+
+                    <div class="card bento__cell card--tint">
+                        <i class="fas fa-clock card__icon" aria-hidden="true"></i>
+                        <h3>Hours</h3>
+                        <p>Tuesday &ndash; Saturday, 9:00 AM &ndash; 4:00 PM<br>Sunday &amp; Monday closed</p>
+                    </div>
+
+                    <div class="card bento__cell">
+                        <i class="fas fa-phone card__icon" aria-hidden="true"></i>
+                        <h3>Call</h3>
+                        <p><a href="tel:9703269788">(970) 326-9788</a></p>
+                    </div>
+
+                    <div class="card bento__cell">
+                        <i class="fas fa-envelope card__icon" aria-hidden="true"></i>
+                        <h3>Email</h3>
+                        <p><a href="mailto:solanadogspa@gmail.com">solanadogspa@gmail.com</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CLOSING -->
+        <section class="section section--alt closing">
+            <div class="container" data-verb="calm">
+                <p class="eyebrow">Booking</p>
+                <h2 data-reveal>Ready to pamper your pup?</h2>
+                <p class="prose">We book by phone so we can ask about your dog's coat, temperament, and history before you arrive. It takes two minutes.</p>
+                <div><a href="booking.html" class="btn btn--primary" data-magnetic>Schedule an Appointment</a></div>
+            </div>
+        </section>
+    </main>
 
     <!-- FOOTER -->
-    <footer>
-        <div class="container footer-grid">
-            <div>
-                <h3>Solana Dog Grooming</h3>
-                <p>Craig's premier dog grooming experience. Cage-free, stress-free, and full of love for your furry family members.</p>
-                <div class="social-links">
-                    <a href="https://www.facebook.com/p/Solana-Dog-Spa-61573825206247/" title="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div>
+                    <h3>Solana Dog Spa</h3>
+                    <p>Craig's premier dog grooming experience. Cage-free, stress-free, and full of care for your furry family members.</p>
+                    <div class="social">
+                        <a href="https://www.facebook.com/p/Solana-Dog-Spa-61573825206247/" target="_blank" rel="noopener" aria-label="Solana Dog Spa on Facebook">
+                            <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4>Navigate</h4>
+                    <nav class="footer__links" aria-label="Footer">
+                        <a href="index.html">Home</a>
+                        <a href="services.html">Services &amp; Pricing</a>
+                        <a href="hours.html">Hours &amp; Contact</a>
+                        <a href="booking.html">Book Now</a>
+                        <a href="privacy.html">Privacy Policy</a>
+                    </nav>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <address>
+                        <span><i class="fas fa-location-dot" aria-hidden="true"></i>575 Yampa Ave, Craig, CO 81625</span>
+                        <span><i class="fas fa-phone" aria-hidden="true"></i><a href="tel:9703269788">(970) 326-9788</a></span>
+                        <span><i class="fas fa-envelope" aria-hidden="true"></i><a href="mailto:solanadogspa@gmail.com">solanadogspa@gmail.com</a></span>
+                    </address>
+                </div>
+                <div>
+                    <h4>Hours</h4>
+                    <address>
+                        <span>Mon &mdash; Closed</span>
+                        <span>Tue&ndash;Sat &mdash; 9:00&ndash;4:00</span>
+                        <span>Sun &mdash; Closed</span>
+                    </address>
                 </div>
             </div>
-            <div>
-                <h4>Quick Links</h4>
-                <a href="index.html">Home</a><br>
-                <a href="services.html">Services & Pricing</a><br>
-                <a href="hours.html">Hours & Contact</a><br>
-                <a href="booking.html">Book Now</a><br>
-                <a href="privacy.html">Privacy Policy</a>
+            <div class="footer__bottom">
+                <p>&copy; 2026 Solana Dog Spa</p>
+                <p>Craig, Colorado</p>
             </div>
-            <div>
-                <h4>Contact</h4>
-                <p>📍 575 Yampa Ave<br>Craig, CO 81625</p>
-                <p>📞 <a href="tel:9703269788">(970) 326-9788</a></p>
-                <p>✉️ <a href="mailto:solanadogspa@gmail.com">solanadogspa@gmail.com</a></p>
-            </div>
-            <div>
-                <h4>Hours</h4>
-                <p>Monday: Closed<br>
-                Tuesday - Saturday<br>
-                9:00 AM - 4:00 PM<br>
-                Sunday: Closed</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Solana Dog Grooming. All rights reserved. Giving pups the pampering they deserve.</p>
         </div>
     </footer>
 
+    <!-- COMMAND PALETTE -->
+    <div class="palette" data-palette role="dialog" aria-modal="true" aria-label="Command palette" aria-hidden="true">
+        <div class="palette__panel">
+            <input class="palette__input" data-palette-input type="text" placeholder="Type a command&hellip;" aria-label="Search commands" autocomplete="off">
+            <div class="palette__list" data-palette-list role="listbox">
+                <a class="palette__item" href="tel:9703269788" data-keywords="phone call ring contact">
+                    <i class="fas fa-phone" aria-hidden="true"></i> Call the shop <small>(970) 326-9788</small>
+                </a>
+                <a class="palette__item" href="booking.html" data-keywords="book appointment schedule">
+                    <i class="fas fa-calendar-check" aria-hidden="true"></i> Book an appointment
+                </a>
+                <a class="palette__item" href="services.html" data-keywords="services pricing prices cost groom">
+                    <i class="fas fa-scissors" aria-hidden="true"></i> Services &amp; pricing
+                </a>
+                <a class="palette__item" href="hours.html" data-keywords="hours open times contact map">
+                    <i class="fas fa-clock" aria-hidden="true"></i> Hours &amp; contact
+                </a>
+                <a class="palette__item" href="https://maps.google.com/?q=575+Yampa+Ave+Craig+CO+81625" target="_blank" rel="noopener" data-keywords="directions map address location">
+                    <i class="fas fa-location-dot" aria-hidden="true"></i> Get directions
+                </a>
+                <a class="palette__item" href="mailto:solanadogspa@gmail.com" data-keywords="email mail contact">
+                    <i class="fas fa-envelope" aria-hidden="true"></i> Email us
+                </a>
+                <a class="palette__item" href="index.html" data-keywords="home start">
+                    <i class="fas fa-house" aria-hidden="true"></i> Home
+                </a>
+                <a class="palette__item" href="privacy.html" data-keywords="privacy policy legal data">
+                    <i class="fas fa-shield-halved" aria-hidden="true"></i> Privacy policy
+                </a>
+                <p class="palette__empty" data-palette-empty hidden>No matches</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="script.js"></script>
 </body>
 </html>

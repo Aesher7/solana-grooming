@@ -1,7 +1,13 @@
-# Solana Dog Grooming - Website Project Documentation
+# Solana Dog Spa - Website Project Documentation
 
 ## Project Overview
-Complete redesign of the Solana Dog Grooming website with a modern, premium aesthetic using a black/orange/gold color scheme. The website is fully responsive, includes animations, and provides a professional online presence for the dog grooming business.
+Static marketing site for Solana Dog Spa, a dog grooming business in Craig, Colorado.
+Hand-written HTML/CSS/vanilla JS, no build step, no framework.
+
+The site was restyled from a light/dark hybrid template into an all-dark
+"engineered instrument" system. **The brand palette did not change** — the same
+black/orange/gold hexes carried over by value. What changed is typography, shape,
+layout, and motion.
 
 **GitHub Repo:** https://github.com/Aesher7/solana-grooming
 
@@ -9,7 +15,6 @@ Complete redesign of the Solana Dog Grooming website with a modern, premium aest
 
 ## Business Information
 - **Business Name:** Solana Dog Spa (formerly Solana Dog Grooming)
-- **Owner:** Not specified
 - **Location:** 575 Yampa Ave, Craig, CO 81625
 - **Phone:** (970) 326-9788
 - **Email:** solanadogspa@gmail.com
@@ -24,168 +29,205 @@ Complete redesign of the Solana Dog Grooming website with a modern, premium aest
 
 ## Design System
 
-### Color Palette
+All tokens live on `:root` in `style.css`. Nothing is hardcoded in rules.
+
+### Surfaces
+Four near-black steps. The design brief called for tinting these toward the accent
+hue; that was **deliberately skipped** because warming `#0f0f0f` would shift the
+brand's base colour. `--bg-2` is the one new value, interpolated between the
+existing blacks so sections have something to alternate against.
+
 ```css
---black: #0f0f0f (Primary background)
---black-light: #1a1a1a
---black-lighter: #2a2a2a
---orange: #ff8c42 (Primary accent/CTA)
---orange-dark: #e67e22
---orange-light: #ffb380
---gold: #d4af37 (Secondary accent/premium touch)
---gold-light: #e8c547
---white: #ffffff (Text on dark backgrounds)
+--bg: #0f0f0f;        /* was --black, unchanged */
+--bg-2: #141414;      /* new interpolated step */
+--surface: #1a1a1a;   /* was --black-light */
+--surface-2: #222222; /* was --black-lighter #2a2a2a, pulled down one notch so
+                         --faint still clears 4.5:1 on it */
 ```
 
-### Key Design Elements
-- Premium, luxury aesthetic
-- Dark background with vibrant orange/gold accents
-- Smooth animations and hover effects
-- Rounded cards (20px border-radius)
-- Text shadows for readability over logo backdrop
-- Glow effects on buttons and interactive elements
-- Responsive design (mobile, tablet, desktop)
+### Accent
+Orange is the accent family, gold the second. **No semantic green** — with no
+live-status pill on the site there is nothing for it to signal.
+
+```css
+--accent: #ff8c42;  --accent-2: #d4af37;
+--accent-deep: #e67e22;  --accent-dim: #ffb380;
+--border: rgba(255,140,66,.12);     /* hairlines, never solid grey */
+--border-hi: rgba(255,140,66,.55);  /* hover only */
+--grad: linear-gradient(135deg,#ff8c42 0%,#e8a04a 50%,#d4af37 100%);
+```
+
+**`--grad` has exactly four sanctioned uses:** headline emphasis, big numbers,
+the primary button, and the nav progress bar. Do not add a fifth.
+
+### Text
+Three weights, all verified ≥4.5:1 against `--surface-2` (the lightest surface any
+of them can land on). Lowest pair is `--faint` on `--surface-2` at 5.58:1.
+
+```css
+--text: #ffffff;  --muted: #e0e0e0;  --faint: #999999;
+```
+
+`#666666` from the old build is **retired** — it was 3.3:1 on black and only ever
+survived on the white sections that no longer exist.
+
+### Shape — the strongest signature
+Asymmetric chamfers. One pair of corners sharp, the opposite pair carved. There is
+no plain `border-radius` anywhere except on the decorative gradient washes, where
+the radius describes an invisible shape rather than a visible edge.
+
+```css
+--r-card: 3px 18px 3px 18px;
+--r-btn:  2px 13px 2px 13px;
+--r-sm:   2px 10px 2px 10px;
+```
+
+### Type
+Three families, one Google Fonts request, with real fallback stacks so a blocked
+CDN degrades rather than breaks.
+
+- `--display` **Bricolage Grotesque** — 800, uppercase, `font-variation-settings:'opsz'`
+  set per size (96 on the hero, ~16 on card headings). Larger opsz keeps the hero
+  from going soft.
+- `--sans` **Space Grotesk** — body and UI.
+- `--mono` **Space Mono** — load-bearing, not a code style. Every eyebrow, label,
+  date, price caption, chip, nav link and footer line.
+
+Size contrast is extreme on purpose: hero at `clamp(46px,7.8vw,108px)` sitting
+directly above 12px mono. Everything non-display uses only `--t11/12/13/14/16/18/20`.
+
+### Space
+4px scale, `--s4` … `--s128`. `--section-y: clamp(96px,11vw,152px)`. Content maxes
+at 1160px. Prose is capped in `ch` (46–58), never px.
 
 ---
 
 ## File Structure
 
 ```
-Solana Website/
-├── index.html           # Home page with hero, services, testimonials
-├── services.html        # Comprehensive pricing and services
-├── hours.html           # Hours, contact info, map
-├── booking.html         # Booking/contact page (phone only)
-├── privacy.html         # Privacy policy
-├── style.css            # All styling (680+ lines)
-├── script.js            # Interactivity and animations
-├── logo.png             # Solana Dog Spa logo (Golden Retriever)
-└── CLAUDE.md            # This file
+solana-website/
+├── index.html      # hero, credentials, services, reviews, visit, closing
+├── services.html   # size bento, add-on chip lists
+├── hours.html      # contact grid, hours rail, map
+├── booking.html    # phone-first, why-call bento, quick facts
+├── privacy.html    # numbered policy prose
+├── style.css       # the whole system (~1200 lines, commented)
+├── script.js       # palette, motion, pointer interactions
+├── logo.png        # Golden Retriever + mountains + "SOLANA DOG SPA" wordmark
+└── CLAUDE.md
 ```
 
 ---
 
-## Completed Features
+## Layout — every section differs from the one before it
 
-### Home Page (index.html)
-- ✅ Hero section with logo backdrop and gradient text
-- ✅ Trust bar with 4 trust signals
-- ✅ Service cards grid (3 cards, featured center)
-- ✅ Testimonials section (3 reviews)
-- ✅ Business hours preview
-- ✅ CTA section
-- ✅ Professional footer with quick links
+A page of identical 3-across card grids is the failure mode this system exists to
+avoid. The patterns in rotation:
 
-### Services Page (services.html)
-- ✅ Base grooming prices by dog size:
-  - Small Dogs: $48-$78
-  - Medium Dogs: $78-$93
-  - Large Dogs: $88-$118
-  - XL Dogs: $100-$150+
-- ✅ Special handling: $10-$45
-- ✅ Add-ons section:
-  - Teeth Brushing: $10
-  - Anal Glands: $10
-  - De-Shed Treatment: $10-$50
-  - Specialty Cuts: $10-$50
-  - Paw Cream: $10
-  - Spa Treatment: $15-$35
-- ✅ Specialty cuts with descriptions:
-  - Hand scissor finish
-  - Clean feet
-  - Clean face
-  - Lamb cut
-  - Puppy cut
-  - Show cut
+- **Asymmetric span grid** (`.spangrid`) — 3 cols, cells spanning 2+1 then 1+2.
+  Exactly as many cells as items, never a filler tile. Wide cells earn the width
+  with larger icons and headings, not by stretching the same content.
+- **Bento** (`.bento`) — 4 cols, mixed spans, one cell on `--surface-2` so it never
+  reads as N identical dark rectangles.
+- **Rail timeline** (`.rail`, hours.html) — mono days right-aligned left of a
+  hairline, times right, dots straddling, gradient line drawn on scroll scrub,
+  bottom masked so it tapers instead of stopping dead.
+- **Overlapping split** (`.overlap`, index.html reviews) — used **exactly once on
+  the site**. The second card starts a column early and is pushed down to lap the
+  first's corner; the underlying card reserves right padding so its text never runs
+  beneath the overlap. A second instance would turn an accent into a pattern.
+- **Hairline-grouped chip lists** (`.group` + `.chips`) — for dense small items.
+  services.html uses these for add-ons and specialty cuts; twelve near-identical
+  pricing cards was exactly the failure mode.
 
-### Hours & Contact Page (hours.html)
-- ✅ Address display
-- ✅ Phone number with link
-- ✅ Email with link
-- ✅ Business hours table
-- ✅ Google Maps embed
-- ✅ Three info cards (address, phone, email)
-
-### Booking Page (booking.html)
-- ✅ Direct phone contact (no automated scheduling)
-- ✅ Phone number prominently displayed
-- ✅ Email option: solanadogspa@gmail.com
-- ✅ Three benefits of calling section
-- ✅ Quick facts section with hours/address
-- ✅ Call-to-action buttons
-
-### Privacy Policy Page (privacy.html)
-- ✅ Colorado Privacy Act compliance
-- ✅ Data collection disclosure
-- ✅ Privacy rights section
-- ✅ Contact information for privacy requests
-- ✅ Professional styling matching site design
-
-### Navigation & Footer
-- ✅ Sticky header with logo and navigation
-- ✅ Mobile menu toggle
-- ✅ Quick Links in footer (including Privacy Policy)
-- ✅ Social links (Facebook only - no Instagram)
-- ✅ Contact information in footer
-- ✅ Hours display in footer
+Breakpoints **1020 / 920 / 700**. At 700 every `grid-column` span is reset to `auto`
+explicitly — a `span 2` surviving into a 1-column grid creates a phantom column.
 
 ---
 
-## Styling & Animations
+## Motion
 
-### Key CSS Features
-- CSS Variables for theming
-- Smooth transitions (cubic-bezier timing)
-- @keyframes animations:
-  - fadeInUp (scroll animations)
-  - fadeInDown (header)
-  - fadeIn
-  - slideInLeft/Right
-  - glow (button effects)
-  - scaleIn
-  - ripple (button ripple effect)
+GSAP + ScrollTrigger from CDN, gated behind a `body.js` class.
 
-### Interactive Elements
-- Hover effects on cards (lift, color change, shadow)
-- Button ripple effect
-- Navigation underline animation
-- Form input styling
-- Mobile responsive hamburger menu
+**All entrances use `gsap.from()`** — never a hidden initial state in CSS. If the
+CDN is blocked the page is simply visible and static.
 
-### Responsive Breakpoints
-- Desktop: 1024px+
-- Tablet: 768px - 1024px
-- Mobile: 480px - 768px
-- Small Mobile: < 480px
+**Shared language:** every display heading, hero included, reveals identically — JS
+wraps each line in an `overflow:hidden` mask and the inner span rises from
+`yPercent:110`. This is what makes five separately-laid-out pages read as one system.
+The hero is the only load-time animation; everything else is scroll-triggered.
 
----
+**Per-section verbs** (via `data-verb`), so the page reads as a sequence:
 
-## JavaScript Features
+| Verb | Behaviour |
+|---|---|
+| `settle` | cards arrive from the grid's start with a slight overshoot — `back.out(1.4)`, the one use on the site |
+| `tilt` | cells rotate up from below on `rotateX`, hinged at their bottom edge |
+| `chips` | populate fast and tight, quicker than any other entrance |
+| `place` | one card arrives rotated 2.4° and scaled 0.96, settling flat |
+| `calm` | the closing section — nothing overshoots, nothing rotates |
 
-### script.js Functionality
-- Mobile menu toggle with smooth animation
-- Scroll animations using IntersectionObserver
-- Smooth scrolling for anchor links
-- Active navigation state detection
-- Button ripple effect on hover
-- Page load fade-in animation
-- Contact link tracking
+Plus the rail, which draws on scrub while rows enter from alternating sides.
+
+**Pointer:** 3D tilt ≤7° (rAF-throttled, `(hover:hover)` only); magnetic pull on
+**exactly two** CTAs site-wide, clamped to 12px so neither leaves its hit box;
+cursor-following radial card highlight via `--mx`/`--my`.
+
+**`prefers-reduced-motion`** is honoured properly, not blanket-disabled: durations
+zeroed, the progress bar and ornament **removed** rather than stranded, line masks
+unset to `overflow:visible`, and the rail shown in its finished state.
 
 ---
 
-## Logo & Branding
+## Components
 
-### Logo File
-- **Filename:** logo.png
-- **Image:** Golden Retriever with mountains and sun backdrop
-- **Usage:** Full backdrop on hero section (with 55% dark overlay)
-- **Color Integration:** Works with premium black/orange/gold color scheme
+- **Cards** — hairline border, chamfered, asymmetric padding (more at the bottom to
+  balance the corner-pinned index number). Hover: `--border-hi` plus a long lift
+  shadow `0 22px 60px -20px` — heavily negative spread, a lift and not a glow.
+- **Buttons — two weights only.** Primary: `--grad` with near-black ink, inset white
+  top highlight, solid dot before the label. Ghost: hairline on translucent surface.
+  A third weight, where needed, is `.tlink` — mono with an offset underline.
+- **Nav** — sticky 62px, `backdrop-filter: blur(14px)`, one hairline bottom border,
+  2px gradient progress bar driven by **one scrubbed ScrollTrigger** (never a scroll
+  listener).
+- **⌘K command palette** — Cmd/Ctrl+K, mono input, filtered arrow-navigable list,
+  Esc closes and returns focus to the opener. Gradient border via the
+  padding-box/border-box double-background trick, the one place a gradient border is
+  earned. **On mobile it becomes the "Menu" button and fully replaces the hamburger.**
 
-### Logo Display
-- Hero section background with dark overlay for text readability
-- Opacity: 0.55 (dark overlay) + background-size: cover
-- Background-attachment: fixed (parallax effect on desktop)
-- Hidden on mobile for cleaner layout
+---
+
+## Accessibility
+
+- Every text/surface pair verified ≥4.5:1; lowest is 5.58:1.
+- The primary button is near-black ink on the gradient at **8.29:1 against the
+  lightest stop**. The previous build used white on `#ff8c42` at ~2.1:1, which
+  failed AA outright.
+- Global `:focus-visible` — 2px accent outline, 3px offset. Hover-only affordances
+  (nav underline, card highlight) also fire on focus.
+- Skip link, `<main>`/`<nav>`/`<footer>` landmarks, `aria-label` on repeated nav,
+  `aria-hidden` on every ornament, wash and decorative icon.
+- The rating is conveyed in text as well as stars, via a `.visually-hidden`
+  clip-rect paragraph.
+
+---
+
+## Hero background — read before touching
+
+`logo.png` carries the "SOLANA DOG SPA" wordmark *below* the artwork. A centred
+`cover` crop drags that wordmark into the bottom of the hero as a ghosted serif
+blob. Two values handle it, and they are load-bearing:
+
+- Desktop: `background-position: center 18%` — pushes the wordmark out of frame.
+- ≤700px: `background-size: auto 145%; background-position: 62% 8%` — on a narrow
+  tall hero, `cover` scales to fit the *height*, so the whole image comes back into
+  frame regardless of position. Oversizing re-crops it out.
+
+A pre-cropped asset was tried and reverted: at 2.5:1 it forced `cover` to scale by
+height on desktop and blew the dog up to fill the viewport.
+
+The scrim is a **left-weighted linear gradient**, not a text-shadow — the type sits
+on controlled darkness while the dog stays legible on the right.
 
 ---
 
@@ -208,149 +250,63 @@ Solana Website/
 ### Special Handling: $10-$45
 (For anxious dogs, rescues, seniors, behavioral concerns)
 
+### Specialty Cuts
+Hand scissor finish, clean feet, clean face, lamb cut, puppy cut, show cut.
+
 ---
 
 ## Important Notes
 
-### Booking Process
-⚠️ **CRITICAL:** Owner does NOT want online scheduling automation. All bookings must be handled via direct phone contact: (970) 326-9788
+⚠️ **CRITICAL:** Owner does NOT want online scheduling automation. All bookings are
+handled via direct phone contact: (970) 326-9788. `booking.html` is built around
+this deliberately — the phone number *is* the interface.
 
-### Contact Information
-- Primary Email: solanadogspa@gmail.com
-- Phone: (970) 326-9788
-- No Instagram (removed from all pages)
-- Facebook: https://www.facebook.com/p/Solana-Dog-Spa-61573825206247/
+⚠️ **The palette is fixed.** The black/orange/gold hexes above are the brand and are
+not to be changed. Restyling work happens through type, shape, layout and motion.
 
-### Color Scheme on Dark Backgrounds
-- Hero section paragraph: Orange background (#ff8c42) with white text
-- This ensures maximum readability over the logo backdrop
-
-### Text Styling
-- Paragraph text over logo has orange background for visibility
-- Main heading uses white with text shadow and orange/gold gradient on span
-- All text includes shadows for readability
-
----
-
-## Future Enhancement Suggestions
-
-1. **Photo Gallery Page**
-   - Before/after grooming photos
-   - Dog breed showcases
-   - Gallery lightbox
-
-2. **Blog/News Section**
-   - Grooming tips
-   - Pet care advice
-   - Service announcements
-
-3. **Team Page**
-   - Staff photos and bios
-   - Certifications
-
-4. **FAQ Section**
-   - Common grooming questions
-   - Dog breed-specific info
-
-5. **Member/Loyalty Program**
-   - Customer accounts
-   - Service history
-   - Rewards system
-
-6. **Admin Dashboard** (if scheduling is added later)
-   - Appointment management
-   - Customer CRM
-   - Service tracking
-
-7. **Mobile App**
-   - iOS/Android booking
-   - Push notifications
-
-8. **Email Marketing**
-   - Newsletter signup
-   - Appointment reminders
-   - Promotions
-
-9. **Live Chat Support**
-   - Real-time customer support
-   - Grooming questions
-
-10. **Advanced Analytics**
-    - Google Analytics integration
-    - Heat maps
-    - Conversion tracking
+- No Instagram anywhere on the site.
+- No emoji as iconography — Font Awesome only. (The brief bans emoji icons, not
+  icon fonts.)
 
 ---
 
 ## Dependencies
 
-**External CDN Links (No npm required):**
-- Font Awesome 6.4.0 (Icons): https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css
-- Google Fonts (via system fonts)
+CDN only, all with SRI hashes and `crossorigin`:
+- GSAP 3.12.5 + ScrollTrigger (cdnjs)
+- Font Awesome 6.4.0 (cdnjs)
+- Google Fonts: Bricolage Grotesque, Space Grotesk, Space Mono — one request
 
-**No build tools required** - Pure HTML, CSS, and vanilla JavaScript
+No npm, no build tools. The site must work with all three blocked.
 
 ---
 
-## Git & GitHub
+## Verification
 
-### GitHub Repository
-- URL: https://github.com/Aesher7/solana-grooming
-- Branch: main
-- Initial commit included complete redesign (8 files)
-
-### How to Push Changes
-From the project terminal:
 ```bash
-git add .
-git commit -m "Description of changes"
-git push -u origin main
+cd /Users/andreesher/Desktop/solana-website && python3 -m http.server 8000
 ```
 
-Or use GitHub CLI:
-```bash
-gh auth login
-git push
-```
+Then check, on all five pages:
 
----
+1. **JS off** — every section visible, layout intact, nav usable (links stay in the
+   bar and the ⌘K button hides itself, since nothing can open it).
+2. **CDN blocked** — content visible and unanimated, fallback fonts legible.
+3. **Reduced motion** — no animation, progress bar gone rather than stuck, headings
+   not clipped by their masks, rail in its finished state.
+4. **Breakpoints** 1020 / 920 / 700 / 390 — no horizontal scroll, spans reset at 700,
+   overlap fully unstacked, ornament hidden below 1020.
+5. **Keyboard** — skip link first, visible ring on every stop; ⌘K opens, arrows move,
+   Enter activates, Esc closes and restores focus.
 
-## Development Notes
-
-### Browser Compatibility
-- Modern browsers (Chrome, Firefox, Safari, Edge)
-- CSS Grid and Flexbox fully supported
-- No legacy IE support needed
-
-### Performance
-- No third-party JavaScript frameworks
-- Lightweight CSS (680 lines)
-- Optimized images (logo.png)
-- Fast page load times
-
-### Accessibility
-- Semantic HTML
-- Color contrast for readability
-- Alt text on images
-- Keyboard navigation support
-
----
-
-## Contact & Questions
-
-For questions about the project design, implementation, or future changes, refer to:
-- Business: solanadogspa@gmail.com
-- Phone: (970) 326-9788
-- Owner preference: Direct phone contact preferred (no online scheduling)
+Note on screenshots: headless Chrome enforces a ~500px minimum window width on
+macOS, so `--window-size=390` renders a 500px layout cropped to 390 and produces
+false overflow. To test a true 390px viewport, load the page in a 390px-wide
+`<iframe>` — media queries then evaluate against the frame.
 
 ---
 
 ## Last Updated
-June 8, 2026
-
-## Project Status
-✅ **COMPLETE** - Fully redesigned, responsive, and ready for deployment
-
----
+September 1, 2026 — all-dark restyle across all five pages.
 
 **Created with Claude Code** 🐕✨

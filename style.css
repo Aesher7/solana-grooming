@@ -1808,9 +1808,16 @@ body:not(.js) .progress {
         grid-column: auto;
     }
 
+    /* These repeat the 1020 selectors on purpose. `.spangrid > *` above cannot
+       clear their span: `.spangrid > :nth-child(1)` scores (0,2,0) against its
+       (0,1,0), so the span-2 from the 1020 block survives into this 1-column
+       grid, opens a phantom second column, and the cards after the wide one get
+       placed into it off-screen. Matching the specificity is what actually
+       resets them. */
     .spangrid > :nth-child(1),
     .spangrid > :nth-child(4),
     .spangrid__cta {
+        grid-column: auto;
         padding: var(--s32) var(--s24) var(--s48);
     }
 

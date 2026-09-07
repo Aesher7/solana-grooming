@@ -469,6 +469,22 @@
         });
     });
 
+    // The award plaque is *mounted* — it scales up a little as it fades in, the
+    // way something gets hung on a wall. Distinct from every other verb so the
+    // one credential on the page does not enter like a content card.
+    document.querySelectorAll('[data-verb="mount"]').forEach(function (el) {
+        onScroll(el.children, {
+            trigger: el,
+            scale: 0.94,
+            y: 24,
+            opacity: 0,
+            transformOrigin: 'center center',
+            duration: 0.85,
+            ease: 'power3.out',
+            stagger: 0.12
+        });
+    });
+
     // The closing section is the calmest on the page: nothing overshoots,
     // nothing rotates.
     document.querySelectorAll('[data-verb="calm"]').forEach(function (el) {

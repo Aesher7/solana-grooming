@@ -20,6 +20,12 @@ layout, and motion.
 - **Email:** solanadogspa@gmail.com
 - **Facebook:** https://www.facebook.com/p/Solana-Dog-Spa-61573825206247/
 
+### Award
+**Best Pet Grooming — Craig Press "Best of Moffat County & Surrounding Areas" 2026.**
+Source file is `BOMC Winner Award 2026_Mountain Eye Works copy.pdf`. The filename is
+misleading — it names a different business, but the certificate inside is Solana's.
+`award-badge.png` is the seal cropped out of that PDF at 881x900.
+
 ### Business Hours
 - Monday: Closed
 - Tuesday - Saturday: 9:00 AM - 4:00 PM
@@ -54,7 +60,8 @@ live-status pill on the site there is nothing for it to signal.
 --accent-deep: #e67e22;  --accent-dim: #ffb380;
 --border: rgba(255,140,66,.12);     /* hairlines, never solid grey */
 --border-hi: rgba(255,140,66,.55);  /* hover only */
---grad: linear-gradient(135deg,#ff8c42 0%,#e8a04a 50%,#d4af37 100%);
+--grad: linear-gradient(135deg,#ff8c42 0%,#e99e3c 50%,#d4af37 100%);
+/* #e99e3c is the exact midpoint of the two brand hexes - no new colour */
 ```
 
 **`--grad` has exactly four sanctioned uses:** headline emphasis, big numbers,
@@ -114,6 +121,7 @@ solana-website/
 ├── style.css       # the whole system (~1200 lines, commented)
 ├── script.js       # palette, motion, pointer interactions
 ├── logo.png        # Golden Retriever + mountains + "SOLANA DOG SPA" wordmark
+├── award-badge.png # Craig Press Best of Moffat County 2026 seal, cropped from the PDF
 └── CLAUDE.md
 ```
 
@@ -136,12 +144,24 @@ avoid. The patterns in rotation:
   the site**. The second card starts a column early and is pushed down to lap the
   first's corner; the underlying card reserves right padding so its text never runs
   beneath the overlap. A second instance would turn an accent into a pattern.
+- **Award plaque split** (`.award__grid`, index.html) — badge left, prose right. The
+  badge is Craig Press's mark, reproduced in its own navy-and-gold on white; it cannot
+  be recoloured, and its navy shield would vanish on `--bg`. So it sits on a white
+  plaque — the only light surface on the site, and earned: it reads as a physical
+  certificate on a dark wall. The plaque uses `var(--text)`, so no new value enters
+  the palette.
 - **Hairline-grouped chip lists** (`.group` + `.chips`) — for dense small items.
   services.html uses these for add-ons and specialty cuts; twelve near-identical
   pricing cards was exactly the failure mode.
 
 Breakpoints **1020 / 920 / 700**. At 700 every `grid-column` span is reset to `auto`
 explicitly — a `span 2` surviving into a 1-column grid creates a phantom column.
+
+⚠️ The reset must **repeat the same selectors** used at 1020, not a shorthand.
+`.spangrid > *` scores (0,1,0) and loses to `.spangrid > :nth-child(1)` at (0,2,0),
+so the span survives, opens a phantom column, and the cards after the wide one are
+placed into it off-screen. This bug hid the Refresh Bath card on index.html and the
+Phone/Email cards on hours.html.
 
 ---
 
@@ -165,6 +185,7 @@ The hero is the only load-time animation; everything else is scroll-triggered.
 | `tilt` | cells rotate up from below on `rotateX`, hinged at their bottom edge |
 | `chips` | populate fast and tight, quicker than any other entrance |
 | `place` | one card arrives rotated 2.4° and scaled 0.96, settling flat |
+| `mount` | the award plaque scales up from 0.96 as it fades — hung, not slid in |
 | `calm` | the closing section — nothing overshoots, nothing rotates |
 
 Plus the rail, which draws on scrub while rows enter from alternating sides.

@@ -1525,6 +1525,52 @@ body:not(.js) .progress {
 }
 
 /* =============================================================================
+   AWARD
+   The badge is a third party's mark (Craig Press) and is reproduced in its own
+   colours — dark navy and gold on white. It cannot be recoloured to suit the
+   page, and its navy shield would vanish against --bg, so it sits on a light
+   plaque. That plaque is the only light surface on the site and it is earned:
+   it reads as a physical certificate mounted on a dark wall rather than as a
+   stray white box.
+   ========================================================================== */
+
+.award__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
+    gap: var(--s64);
+    align-items: center;
+}
+
+.award__plaque {
+    /* var(--text) IS #ffffff — the plaque introduces no value that is not
+       already a token in the system. */
+    background: var(--text);
+    border: 1px solid var(--border-2);
+    border-radius: var(--r-card);
+    padding: var(--s32);
+    /* Gold-tinted lift rather than the standard orange one: the shadow reads as
+       the plaque standing off the wall, and gold is the award's own colour. */
+    box-shadow: 0 22px 60px -20px rgba(212, 175, 55, 0.34);
+}
+
+.award__plaque img {
+    width: 100%;
+    height: auto;
+}
+
+.award__body h2 {
+    font-size: clamp(28px, 4vw, 50px);
+    font-variation-settings: 'opsz' 32;
+    margin: var(--s16) 0 var(--s24);
+}
+
+.award__meta {
+    margin-top: var(--s32);
+    padding-top: var(--s24);
+    border-top: 1px solid var(--border);
+}
+
+/* =============================================================================
    CLOSING CTA — the calmest section on the page
    ========================================================================== */
 
@@ -1763,6 +1809,17 @@ body:not(.js) .progress {
         grid-column: span 4;
     }
 
+    /* Below this the plaque column starves the prose beside it. Stacking also
+       caps the badge so it does not become the largest thing on the page. */
+    .award__grid {
+        grid-template-columns: 1fr;
+        gap: var(--s32);
+    }
+
+    .award__plaque {
+        max-width: 320px;
+    }
+
     /* Side-by-side needs real width to be worth it; below this the two columns
        squeeze the measure down to a few words per line. */
     .bento__cell--wide {
@@ -1828,6 +1885,14 @@ body:not(.js) .progress {
     .hero {
         min-height: auto;
         padding: var(--s96) 0 var(--s64);
+    }
+
+    /* Four meta items will not sit on one line here, and as a flex row they wrap
+       3 + 1, orphaning the last one. A 2x2 grid keeps the block square. */
+    .hero__meta {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--s24);
     }
 
     /* On a narrow, tall hero `cover` scales to fit the *height*, so the whole
